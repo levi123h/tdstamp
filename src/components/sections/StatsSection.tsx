@@ -116,22 +116,7 @@ export function StatsSection() {
     <section ref={ref} className="bg-[#0b1020] py-14 sm:py-18">
       <Container>
         <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/6 via-white/3 to-transparent p-6 sm:p-8">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-bold tracking-[0.2em] text-brand-gold/90">
-                THỐNG KÊ NỔI BẬT
-              </p>
-              <h3 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-                30 năm khẳng định chất lượng, phủ sóng toàn quốc
-              </h3>
-            </div>
-            <p className="max-w-xl text-sm leading-6 text-white/70">
-              Những con số tạo nên vị thế thương hiệu và năng lực đáp ứng thị
-              trường.
-            </p>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {items.map((it) => (
               <Stat
                 key={it.label}

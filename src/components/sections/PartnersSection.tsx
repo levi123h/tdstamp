@@ -26,7 +26,7 @@ export function PartnersSection() {
     <section className="bg-muted py-14 sm:py-18">
       <Container>
         <SectionHeading
-          title="Giải pháp tối ưu cho từng nhóm đối tác"
+          title="TDStamp Đồng Hành Cùng Sự Phát Triển Của Đối Tác"
           align="center"
         />
 
@@ -43,8 +43,8 @@ export function PartnersSection() {
           />
           <PartnerCard
             icon="🏢"
-            title="Cơ quan / Văn phòng & Cá nhân"
-            description="Tinh gọn hóa quy trình bàn giấy, nâng cao tính chuyên nghiệp. Không còn mệt mỏi vì ký tay hàng trăm văn bản mỗi ngày."
+            title="Cơ quan, Văn phòng & Cá nhân"
+            description="Giải pháp tinh gọn hóa quy trình thủ tục, nâng tầm chuyên nghiệp. Thay thế hoàn toàn thao tác thủ công bằng giải pháp đóng dấu nhanh chóng."
           />
         </div>
       </Container>

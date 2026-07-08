@@ -42,12 +42,12 @@ export function CapabilitySection() {
               description="Từ các thị trường khắt khe nhất: Nhật Bản, Hàn Quốc, Đài Loan, Trung Quốc."
             />
             <CapabilityItem
-              title="Hơn 100 kỹ sư và nhân sự tay nghề cao"
+              title="Đội ngũ nhân sự tay nghề cao"
               description="Trực tiếp vận hành, giám sát nghiêm ngặt đầu ra sản phẩm."
             />
             <CapabilityItem
               title="Hơn 500 bộ khuôn mẫu đa dạng"
-              description="Đáp ứng từ con dấu cá nhân nhỏ gọn đến các hệ phôi siêu lớn như T1014 (50x80mm)."
+              description="Đáp ứng từ con dấu cá nhân nhỏ gọn đến các hộp dấu siêu lớn như T1014 (50x80mm)."
             />
           </div>
         </div>

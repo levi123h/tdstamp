@@ -27,7 +27,7 @@ export function HeroSection() {
             Xuất phát từ một cơ sở khắc dấu đầu thập niên 90, TDStamp mang khát
             vọng tạo nên sản phẩm con dấu chất lượng cao cho người Việt, do người
             Việt sản xuất. Hơn 30 năm nỗ lực đã đưa TDStamp trở thành thương hiệu
-            dẫn đầu thị trường.
+            dẫn đầu thị trường, phủ sóng 34 tỉnh thành, và từng bước vươn tầm quốc tế.
           </p>
 
           <div className="mt-7 flex justify-center">

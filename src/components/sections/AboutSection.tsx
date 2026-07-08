@@ -1,5 +1,4 @@
 import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 function AboutCard({
   title,
@@ -30,20 +29,7 @@ export function AboutSection() {
   return (
     <section className="bg-muted py-14 sm:py-18">
       <Container>
-        <SectionHeading
-          title='Giới thiệu về TDStamp – Thương hiệu con dấu "Quốc dân"'
-          align="center"
-        />
-
-        <p className="mx-auto mt-5 max-w-3xl text-center text-base leading-7 text-slate-700">
-          Để xứng đáng với danh xưng &quot;Thương hiệu quốc dân&quot; do người tiêu
-          dùng trao tặng, TDStamp tự hào ghi dấu với những cột mốc vàng: là đơn
-          vị Việt Nam duy nhất chủ động nghiên cứu và sản xuất con dấu từ phôi
-          đến thành phẩm, phủ sóng 63 tỉnh thành với hàng nghìn đại lý, và từng
-          bước vươn tầm quốc tế.
-        </p>
-
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           <AboutCard
             tone="blue"
             title="🎯 Đặt khách hàng làm trọng tâm"

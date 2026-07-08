@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Container } from "@/components/layout/Container";
 
-type FormState = "idle" | "success" | "error";
+type FormState = "idle" | "submitting" | "success" | "error";
 
 export function ContactSection() {
   const [name, setName] = useState("");
@@ -12,21 +12,44 @@ export function ContactSection() {
   const [agency, setAgency] = useState("");
   const [qty, setQty] = useState("");
   const [state, setState] = useState<FormState>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const canSubmit = useMemo(() => {
     return name.trim().length > 0 && phone.trim().length > 0;
   }, [name, phone]);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setState("idle");
+    setErrorMessage("");
+
+    if (!canSubmit) {
+      setState("error");
+      setErrorMessage("Vui lòng nhập họ tên và số điện thoại.");
+      return;
+    }
+
+    setState("submitting");
 
     try {
-      if (!canSubmit) {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          agency: agency.trim(),
+          qty: qty.trim(),
+        }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
         setState("error");
+        setErrorMessage(data.error ?? "Có lỗi xảy ra. Vui lòng thử lại.");
         return;
       }
-      // Production: wire this to your CRM / email / API route.
+
       setState("success");
       setName("");
       setPhone("");
@@ -34,6 +57,7 @@ export function ContactSection() {
       setQty("");
     } catch {
       setState("error");
+      setErrorMessage("Không thể kết nối máy chủ. Vui lòng thử lại.");
     }
   }
 
@@ -43,12 +67,12 @@ export function ContactSection() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-6">
             <h2 className="text-balance text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-              Liên hệ đại lý & đặt hàng số lượng lớn
+              Liên Hệ Hợp Tác & Nhận Báo Giá Sỉ
             </h2>
             <p className="mt-3 text-pretty text-base leading-7 text-white/80">
-              Đại lý, cơ sở khắc dấu và nhà phân phối có nhu cầu nhập phôi dấu
-              T1014 vui lòng để lại thông tin. Team TDstamp sẽ liên hệ tư vấn và
-              gửi chính sách giá ưu đãi chỉ trong vòng 1 giờ.
+              Đăng ký nhận báo giá sỉ con dấu T1014 nhanh chóng! Để lại thông tin
+              ngay, đội ngũ TDStamp sẽ liên hệ hỗ trợ và gửi chính sách đại lý độc
+              quyền sau ít phút
             </p>
 
             <form onSubmit={onSubmit} className="mt-7 space-y-4" noValidate>
@@ -112,10 +136,10 @@ export function ContactSection() {
               <div className="pt-2">
                 <button
                   type="submit"
-                  disabled={!canSubmit}
+                  disabled={!canSubmit || state === "submitting"}
                   className="inline-flex w-full items-center justify-center rounded-lg bg-brand-gold px-6 py-3 text-sm font-extrabold tracking-wide text-brand-navy hover:bg-brand-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  GỬI YÊU CẦU NGAY
+                  {state === "submitting" ? "ĐANG GỬI..." : "GỬI YÊU CẦU NGAY"}
                 </button>
               </div>
 
@@ -127,20 +151,13 @@ export function ContactSection() {
                 ) : null}
                 {state === "error" ? (
                   <p className="text-red-300">
-                    ❌ Có lỗi xảy ra. Vui lòng thử lại.
+                    ❌ {errorMessage || "Có lỗi xảy ra. Vui lòng thử lại."}
                   </p>
                 ) : null}
               </div>
             </form>
 
-            <div className="mt-8 space-y-2 text-sm text-white/70">
-              <p className="font-semibold text-white">
-                TDSTAMP – Sản xuất & Phân phối con dấu trên toàn quốc
-              </p>
-              <p>📍 Văn phòng: 63A Xô Viết Nghệ Tĩnh, P. Ninh Kiều, TP. Cần Thơ</p>
-              <p>🏭 Xưởng sản xuất: 207 Nhật Tảo, P. Cái Răng, TP. Cần Thơ</p>
-              <p>📞 Hotline: 0964 980 027 – 0932 922 557 – 0939 092 973</p>
-            </div>
+            {/* Business info moved to footer */}
           </div>
 
           <div className="lg:col-span-6">
