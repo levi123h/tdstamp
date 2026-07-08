@@ -33,7 +33,7 @@ export function ProductLaunchSection() {
           <div className="lg:col-span-6">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,0.35)] ring-1 ring-white/10">
               <Image
-                src="/images/t1014.jpeg"
+                src="/images/t1014.png"
                 alt="Phôi hộp dấu T1014"
                 fill
                 sizes="(min-width: 1024px) 48vw, 100vw"

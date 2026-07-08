@@ -25,9 +25,9 @@ export function CapabilitySection() {
 
         <div className="mt-10 grid grid-cols-1 gap-7 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
-            <div className="relative aspect-[16/11] overflow-hidden rounded-2xl ring-1 ring-black/5">
+            <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-black/5">
               <Image
-                src="/images/con-dau.jpg"
+                src="/images/capability.jpg"
                 alt="Hình ảnh minh hoạ về dịch vụ con dấu"
                 fill
                 className="object-cover"

@@ -1,5 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
+import Image from "next/image";
 
 const navItems = [
   { href: "#home", label: "Trang chủ" },
@@ -14,10 +15,17 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between">
         <a
           href="#home"
-          className="text-base font-extrabold tracking-wide text-brand-maroon"
-          aria-label="TDSTAMP - Trang chủ"
+          className="flex items-center"
+          aria-label="TDStamp Printer - Trang chủ"
         >
-          TDSTAMP
+          <Image
+            src="/images/logo.png"
+            alt="TDStamp Printer"
+            width={180}
+            height={40}
+            priority
+            className="h-8 w-auto"
+          />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Chính">

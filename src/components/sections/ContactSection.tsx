@@ -163,8 +163,8 @@ export function ContactSection() {
           <div className="lg:col-span-6">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 ring-1 ring-white/5">
               <Image
-                src="https://images.pexels.com/photos/7654118/pexels-photo-7654118.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Khách hàng đang đóng dấu hồ sơ tại văn phòng"
+                src="/images/contact.jpg"
+                alt="Hợp tác cùng TDStamp"
                 width={1200}
                 height={900}
                 className="h-auto w-full object-cover"
